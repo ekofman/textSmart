@@ -1,0 +1,266 @@
+<div class = "newBook">
+	<div class = "title">SELL YOUR BOOK</div>
+	<p><i><%= flash[:notice] %></i></p>
+
+	<% if not @user == nil and @user.errors.any? then %>
+		<p><i> Error: <%= @user.errors[:user] %> </i></p>
+		<% @user.errors.clear %>
+	<% end %>
+
+	<%= form_for(:book, :url => {:action => :create}) do |form| %>
+		<table class = "form">
+			<tr>
+				<td class = "label">Book Title:</td>
+				<td><%= form.text_field(:book_title) %></td>
+			</tr>
+			<tr>
+				<td class = "label"> Edition </td>
+				<td><%= form.text_field(:edition) %></td>
+			</tr>
+			<tr>
+				<td class = "label">Class Name</td>
+				<td><%= form.text_field(:class_name) %></td>
+			<tr>
+				<td class = "label"> Class Subject </td>
+				<td>
+				<%= form.select :major, [
+['Cancer Biology (CBIO)','Cancer Biology '],
+['International Relations (INTNLREL)','International Relations '],
+['African & African American Studies (AFRICAAM)','African & African American Studies '],
+['Chicana/o-Latina/o Studies (CHILATST)','Chicana/o-Latina/o Studies '],
+['GSB General & Interdisciplinary (GSBGEN)','GSB General & Interdisciplinary '],
+['African Studies (AFRICAST)','African Studies '],
+['Slavic Studies (SLAVIC)','Slavic Studies '],
+['Italian Language (ITALLANG)','Italian Language '],
+['Biosciences Interdisciplinary (BIOS)','Biosciences Interdisciplinary '],
+['Chinese General (CHINGEN)','Chinese General '],
+['History (HISTORY)','History '],
+['Political Economics (POLECON)','Political Economics '],
+['Geological & Environmental Sciences (GES)','Geological & Environmental Sciences '],
+['Structural Biology (SBIO)','Structural Biology '],
+['German Language (GERLANG)','German Language '],
+['Linguistics (LINGUIST)','Linguistics '],
+['Chinese Language (CHINLANG)','Chinese Language '],
+['Stem Cell Biology and Regenerative Medicine (STEMREM)','Stem Cell Biology and Regenerative Medicine '],
+['Pathology (PATH)','Pathology '],
+['ROTC Army (ROTCARMY)','ROTC Army '],
+['Slavic Language (SLAVLANG)','Slavic Language '],
+['Chemical Engineering (CHEMENG)','Chemical Engineering '],
+['Theater and Performance Studies (TAPS)','Theater and Performance Studies '],
+['Undergraduate Advising and Research (UAR)','Undergraduate Advising and Research '],
+['English for Foreign Students (EFSLANG)','English for Foreign Students '],
+['Overseas Studies in Australia (OSPAUSTL)','Overseas Studies in Australia '],
+['Interdisciplinary Studies in the Humanities (HUMNTIES)','Interdisciplinary Studies in the Humanities '],
+['Genetics (GENE)','Genetics '],
+['Iberian Languages (IBERLANG)','Iberian Languages '],
+['Immersion in the Arts (ITALIC)','Immersion in the Arts '],
+['French Studies (FRENCH)','French Studies '],
+['Neurosurgery (NSUR)','Neurosurgery '],
+['English (ENGLISH)','English '],
+['Psychiatry (PSYC)','Psychiatry '],
+['Comparative Medicine (COMPMED)','Comparative Medicine '],
+['School of Earth Sciences
+(School of Earth Sciences
+)','School of Earth Sciences
+'],
+['Stanford in Washington (SIW)','Stanford in Washington '],
+['Film Studies (FILMSTUD)','Film Studies '],
+['Operations Information & Technology (OIT)','Operations Information & Technology '],
+['Japanese Language (JAPANLNG)','Japanese Language '],
+['Bioengineering (BIOE)','Bioengineering '],
+['Cardiothoracic Surgery (CTS)','Cardiothoracic Surgery '],
+['Microbiology & Immunology (MI)','Microbiology & Immunology '],
+['Biomedical Informatics (BIOMEDIN)','Biomedical Informatics '],
+['Tibetan Language (TIBETLNG)','Tibetan Language '],
+['Classics Greek (CLASSGRK)','Classics Greek '],
+['Korean Language (KORLANG)','Korean Language '],
+['Overseas Studies in Oxford (OSPOXFRD)','Overseas Studies in Oxford '],
+['Otolaryngology (OTOHNS)','Otolaryngology '],
+['Film Production (FILMPROD)','Film Production '],
+['ROTC Air Force (ROTCAF)','ROTC Air Force '],
+['Engineering (ENGR)','Engineering '],
+['Philosophy (PHIL)','Philosophy '],
+['Chinese Literature (CHINLIT)','Chinese Literature '],
+['Anesthesia (ANES)','Anesthesia '],
+['Geophysics (GEOPHYS)','Geophysics '],
+['Writing & Rhetoric, Program in (PWR)','Writing & Rhetoric, Program in '],
+['Law, Nonprofessional (LAWGEN)','Law, Nonprofessional '],
+['Mathematical & Computational Science (MCS)','Mathematical & Computational Science '],
+['Family and Community Medicine (FAMMED)','Family and Community Medicine '],
+['Humanities & Sciences (HUMSCI)','Humanities & Sciences '],
+['Law School
+(Law School
+)','Law School
+'],
+['Oral Communications (ORALCOMM)','Oral Communications '],
+['French Language (FRENLANG)','French Language '],
+['ROTC Navy (ROTCNAVY)','ROTC Navy '],
+['Sociology (SOC)','Sociology '],
+['Spanish Language (SPANLANG)','Spanish Language '],
+['Accounting (ACCT)','Accounting '],
+['Radiology (RAD)','Radiology '],
+['Chemical & Systems Biology (CSB)','Chemical & Systems Biology '],
+['Native American Studies (NATIVEAM)','Native American Studies '],
+['Office of Vice Provost for Undergraduate Education','Office of Vice Provost for Undergraduate Education
+'],
+['Astronomy (ASTRNMY)','Astronomy '],
+['African & Middle Eastern Languages (AMELANG)','African & Middle Eastern Languages '],
+['Obstetrics & Gynecology (OBGYN)','Obstetrics & Gynecology '],
+['Korean General (KORGEN)','Korean General '],
+['History & Philosophy of Science (HPS)','History & Philosophy of Science '],
+['Korean Literature (KORLIT)','Korean Literature '],
+['Psychology (PSYCH)','Psychology '],
+['Dance (DANCE)','Dance '],
+['Marketing (MKTG)','Marketing '],
+['Asian Languages (ASNLANG)','Asian Languages '],
+['Aeronautics & Astronautics (AA)','Aeronautics & Astronautics '],
+['Chemistry (CHEM)','Chemistry '],
+['Materials Science & Engineer (MATSCI)','Materials Science & Engineer '],
+['Portuguese Language (PORTLANG)','Portuguese Language '],
+['Environment and Resources (ENVRES)','Environment and Resources '],
+['Classics History (CLASSHIS)','Classics History '],
+['Physics (PHYSICS)','Physics '],
+['Organizational Behavior (OB)','Organizational Behavior '],
+['School of Education
+(School of Education
+)','School of Education
+'],
+['Economics (ECON)','Economics '],
+['Thinking Matters (THINK)','Thinking Matters '],
+['Overseas Studies in Barcelona (OSPBARCL)','Overseas Studies in Barcelona '],
+['Italian Studies (ITALIAN)','Italian Studies '],
+['Symbolic Systems (SYMSYS)','Symbolic Systems '],
+['Health Research & Policy (HRP)','Health Research & Policy '],
+['Institute for International Studies (IIS)','Institute for International Studies '],
+['International Policy Studies (IPS)','International Policy Studies '],
+['Developmental Biology (DBIO)','Developmental Biology '],
+['Biology (BIO)','Biology '],
+['Energy Resources Engineering (ENERGY)','Energy Resources Engineering '],
+['Law (LAW)','Law '],
+['School of Medicine
+(School of Medicine
+)','School of Medicine
+'],
+['Art Institute (ARTSINST)','Art Institute '],
+['Urban Studies (URBANST)','Urban Studies '],
+['Archaeology (ARCHLGY)','Archaeology '],
+['Arabic Language (ARABLANG)','Arabic Language '],
+['Medicine (MED)','Medicine '],
+['Mathematics (MATH)','Mathematics '],
+['Division of Literatures, Cultures, & Languages (DLCL)','Division of Literatures, Cultures, & Languages '],
+['American Studies (AMSTUD)','American Studies '],
+['Biochemistry (BIOC)','Biochemistry '],
+['Special Language Program (SPECLANG)','Special Language Program '],
+['Science in the Making (SiMILE)','Science in the Making '],
+['Medieval Studies (MEDVLST)','Medieval Studies '],
+['Science, Technology, & Society (STS)','Science, Technology, & Society '],
+['Art History (ARTHIST)','Art History '],
+['Political Science (POLISCI)','Political Science '],
+['School of Medicine General (SOMGEN)','School of Medicine General '],
+['Earth, Energy, & Environmental Sciences (EEES)','Earth, Energy, & Environmental Sciences '],
+['Neurobiology (NBIO)','Neurobiology '],
+['Environmental Earth System Science (EESS)','Environmental Earth System Science '],
+['Graduate School of Business
+(Graduate School of Business
+)','Graduate School of Business
+'],
+['Athletics, Physical Education, Recreation (ATHLETIC)','Athletics, Physical Education, Recreation '],
+['School of Engineering
+(School of Engineering
+)','School of Engineering
+'],
+['Pediatrics (PEDS)','Pediatrics '],
+['Neurosciences Program (NEPR)','Neurosciences Program '],
+['Dermatology (DERM)','Dermatology '],
+['Structured Liberal Education (SLE)','Structured Liberal Education '],
+['Medicine Interdisciplinary (INDE)','Medicine Interdisciplinary '],
+['Classics Latin (CLASSLAT)','Classics Latin '],
+['Ophthalmology (OPHT)','Ophthalmology '],
+['Music (MUSIC)','Music '],
+['Latin American Studies (LATINAM)','Latin American Studies '],
+['Strategic Management (STRAMGT)','Strategic Management '],
+['Earth Systems (EARTHSYS)','Earth Systems '],
+['Electrical Engineering (EE)','Electrical Engineering '],
+['Neurology & Neurological Sciences (NENS)','Neurology & Neurological Sciences '],
+['Russian, East European, & Eurasian Studies (REES)','Russian, East European, & Eurasian Studies '],
+['Management Science & Engineering (MS&E)','Management Science & Engineering '],
+['Asian American Studies (ASNAMST)','Asian American Studies '],
+['Iberian & Latin American Cultures (ILAC)','Iberian & Latin American Cultures '],
+['Economic Analysis & Policy (MGTECON)','Economic Analysis & Policy '],
+['Overseas Studies in Madrid (OSPMADRD)','Overseas Studies in Madrid '],
+['Modern Thought & Literature (MTL)','Modern Thought & Literature '],
+['Center for Teaching & Learning (CTL)','Center for Teaching & Learning '],
+['Overseas Studies in Cape Town (OSPCPTWN)','Overseas Studies in Cape Town '],
+['Communication (COMM)','Communication '],
+['Biophysics (BIOPHYS)','Biophysics '],
+['Catalan Language Courses (CATLANG)','Catalan Language Courses '],
+['Classics Art/Archaeology (CLASSART)','Classics Art/Archaeology '],
+['Woods Institute for the Environment (ENVRINST)','Woods Institute for the Environment '],
+['Orthopedic Surgery (ORTHO)','Orthopedic Surgery '],
+['Religious Studies (RELIGST)','Religious Studies '],
+['Art Studio (ARTSTUDI)','Art Studio '],
+['Overseas Studies in Florence (OSPFLOR)','Overseas Studies in Florence '],
+['Anthropology (ANTHRO)','Anthropology '],
+['Earth Science (EARTHSCI)','Earth Science '],
+['Drama (TAPS)','Drama '],
+['Computer Science (CS)','Computer Science '],
+['Surgery (SURG)','Surgery '],
+['East Asian Studies (EASTASN)','East Asian Studies '],
+['Overseas Studies in Beijing (OSPBEIJ)','Overseas Studies in Beijing '],
+['Japanese Literature (JAPANLIT)','Japanese Literature '],
+['Mechanical Engineering (ME)','Mechanical Engineering '],
+['Education as Self-Fashioning (ESF)','Education as Self-Fashioning '],
+['Japanese General (JAPANGEN)','Japanese General '],
+['German Studies (GERMAN)','German Studies '],
+['Spanish, Portuguese, & Catalan Literature (ILAC)','Spanish, Portuguese, & Catalan Literature '],
+['Radiation Oncology (RADO)','Radiation Oncology '],
+['Biology/Hopkins Marine (BIOHOPK)','Biology/Hopkins Marine '],
+['Scientific Computing & Computational Math (SCCM)','Scientific Computing & Computational Math '],
+['Computational & Mathematical Engineering (CME)','Computational & Mathematical Engineering '],
+['Civil & Environmental Engineering (CEE)','Civil & Environmental Engineering '],
+['Classics General (CLASSGEN)','Classics General '],
+['Immunology (IMMUNOL)','Immunology '],
+['Overseas Studies in Kyoto (OSPKYOCT)','Overseas Studies in Kyoto '],
+['Overseas Studies in Santiago (OSPSANTG)','Overseas Studies in Santiago '],
+['Overseas Studies in Paris (OSPPARIS)','Overseas Studies in Paris '],
+['Human Resource Management (HRMGT)','Human Resource Management '],
+['Overseas Studies General (OSPGEN)','Overseas Studies General '],
+['Finance (FINANCE)','Finance '],
+['Overseas Studies in Berlin (OSPBER)','Overseas Studies in Berlin '],
+['Comparative Studies in Race & Ethnicity (CSRE)','Comparative Studies in Race & Ethnicity '],
+['Urology (UROL)','Urology '],
+['Overseas Studies in Moscow (OSPMOSC)','Overseas Studies in Moscow '],
+['Human Biology (HUMBIO)','Human Biology '],
+['Public Policy (PUBLPOL)','Public Policy '],
+['Applied Physics (APPPHYS)','Applied Physics '],
+['Statistics (STATS)','Statistics '],
+['Feminist, Gender and Sexuality Studies (FEMGEN)','Feminist, Gender and Sexuality Studies '],
+['School of Humanities & Sciences
+(School of Humanities & Sciences
+)','School of Humanities & Sciences
+'],
+['Jewish Studies (JEWISHST)','Jewish Studies '],
+['Molecular & Cellular Physiology (MCP)','Molecular & Cellular Physiology '],
+['Comparative Literature (COMPLIT)','Comparative Literature '],
+['Ethics in Society (ETHICSOC)','Ethics in Society '],
+['Education (EDUC)','Education '],
+] %>
+				</td>
+			<td class = "label"> Class Number </td>
+			<td><%= form.text_field(:class_number) %></td>
+			</tr>
+
+			<tr>
+				<td class = "label">Price</td>
+				<td><%= form.text_field :price %></td>
+			</tr>
+			<tr>
+				<td class = "label">Condition</td>
+				<td><%= form.select :condition, [['Like New', 'Like New'],['Good', 'Good'], ['Worn', 'Worn'], ['Pretty Gnarly', 'Pretty Gnarly']] %></td>
+			<tr>
+				<td class = "label">Rental or Sale?</td>
+				<td><%= form.select :rent_or_sale, [['Sale', 'Sale',],['Rental','Rental']] %></td>
+		</table>
+		<%= submit_tag "Go!" %><a href = "../../book">Never mind</a>
+	<% end %>
+</div>

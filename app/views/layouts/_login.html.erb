@@ -1,0 +1,7 @@
+<div class = "welcomeBar">
+	<% if session["user"] != nil %>
+		<span class = "logout"> Hi <%= session["user"] %>! <a href = "../../user/logout"> Log out </a></span>
+	<% else %>
+		<a href = "../../user/login"> <span class = "white"> Log in </span> </a>
+	<% end %>
+</div>

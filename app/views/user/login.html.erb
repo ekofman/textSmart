@@ -1,0 +1,14 @@
+<div class = "title"> LOG IN</div>
+<%= flash[:notice] %>
+<div class = "loginSection">
+	<%= form_for(:user, :url => {:action => :post_login}) do |form| %>
+		<table class = "form">
+			<tr>
+				<td class = "label">Login Name</td>
+				<td><%= form.text_field(:email) %></td>
+			</tr>
+		</table>
+		<%= submit_tag "Login" %>
+	<% end %>
+	<a href = "./new"> New? Register here </a>
+</div>

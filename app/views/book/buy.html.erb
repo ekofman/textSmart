@@ -1,0 +1,13 @@
+<div class = "title">BUY A BOOK</div>
+
+<%@books.each do |book| %>
+		<div class = "book">
+			<span class = "price">$<%= book.price %></span>
+			<%= book.duration %>
+			<span class = "bookName"><%= book.book_name %></span>
+			<span class = "className"><%= book.class_name %></span>
+			<% user = User.find(book.user_id) %>
+			<%= user.email %>
+		</div>
+		</br>
+<% end %>

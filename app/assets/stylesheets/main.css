@@ -1,0 +1,82 @@
+body{
+    background-color: #aaddff;
+}
+.title{
+    color: white;
+    font-family: Impact;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    font-size: 100px;
+}
+  
+.book{
+    background-color: #88bbdd;
+    display: inline-block;
+    box-shadow: 4px 4px 4px black;
+    vertical-align: middle;
+    -webkit-border-radius: 10px;
+    background: linear-gradient(90deg, #6699bb 0%, #88bbdd  90%);
+    padding: 10px;
+    margin: 10px;
+}
+  
+.price{
+    color: white;
+    font-family: Impact;
+    font-size: 30px;
+    text-shadow: 1px 1px 1px black;
+}
+  
+.bookName{
+    font-size: 25px;
+    font-family: Impact;
+}
+  
+.className{
+    color: #c8850b;
+    font-size: 20px;
+}
+  
+.buttons{
+    margin-top: 75px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 100px;
+}
+  
+.loginSection{
+    text-align: center;
+    white-space: nowrap;
+}
+  
+.button{
+    box-shadow: 2px 2px 2px #000055;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    display: inline-block;
+    font-family: Impact;
+    text-align: center;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 80px;
+    -webkit-border-radius: 20px;
+    background: linear-gradient(90deg, #fba82f 0%, #fed76e 90%);
+}
+  
+a{
+    text-decoration: none;
+    color: black;
+}
+  
+a:hover{
+    color: #663300;
+}
+  
+#buyButton{
+  
+}
+  
+#sellButton{
+  
+}
