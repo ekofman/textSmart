@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140105190503) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: true do |t|
     t.string   "class_name"
     t.string   "book_name"
@@ -35,8 +38,8 @@ ActiveRecord::Schema.define(version: 20140105190503) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
-  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "user_name"
