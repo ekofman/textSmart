@@ -1,7 +1,6 @@
 class CreateUsers < ActiveRecord::Migration
-def up
-    # Create initial users.
-    down
+  def up
+    # Create initial users
     ek = User.new(:user_name => "ekof", :email => "ekofman@stanford.edu")
     ek.save(:validate => false)
     ca = User.new(:user_name => "C-monster", :email => "cjaholt@stanford.edu")
@@ -20,8 +19,8 @@ def up
     psych1.save(:validate => false)
   end
  
-  def down
-      Book.delete_all
-      User.delete_all
-  end
+  #def down
+  #    Book.delete_all
+  #    User.delete_all
+  #end
 end
