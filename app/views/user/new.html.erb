@@ -1,0 +1,15 @@
+<div class = "title"> SIGN UP </div>
+<%= flash[:notice] %>
+
+<div class = "loginSection">
+	<%= form_for(@user, :url => {:action => :create}) do |form| %>
+	<table class = "form">
+			<tr>
+				<td class = "label">Stanford email address</td>
+				<td><%= form.text_field(:email) %></td>
+			</tr>
+		</table>
+		<%= submit_tag "Sign Up" %>
+	<% end %>
+</div>
+

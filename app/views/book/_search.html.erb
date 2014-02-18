@@ -1,0 +1,14 @@
+<%@books.each do |book| %>
+<% if (@substring and (book.class_name.downcase.include?(@substring.downcase) or book.book_name.downcase.include?(@substring.downcase))) or not @substring %>
+		<div class = "book">
+			<span class = "price">$<%= book.price %></span>
+			<%= book.duration %>
+			<span class = "bookName"><%= book.book_name %></span>
+			<span class = "className"><%= book.class_name %></span>
+			<% user = User.find(book.user_id) %>
+			<%= user.email %>
+		</div>
+		</br>
+<% end %>
+
+<% end %>

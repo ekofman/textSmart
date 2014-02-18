@@ -9,6 +9,11 @@ class BookController < ApplicationController
      
     def new
     end
+
+    def search
+      @books = Book.find(:all)
+      @substring = params[:substring]
+    end
      
     def create
         if session["user"] != nil

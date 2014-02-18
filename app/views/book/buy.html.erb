@@ -1,13 +1,36 @@
+<%= render :partial => "layouts/login" %>
 <div class = "title">BUY A BOOK</div>
+<div class = "searchBox"> 
+  Search textbooks <%= text_field_tag ('search_box') %>
+</div>
 
-<%@books.each do |book| %>
-		<div class = "book">
-			<span class = "price">$<%= book.price %></span>
-			<%= book.duration %>
-			<span class = "bookName"><%= book.book_name %></span>
-			<span class = "className"><%= book.class_name %></span>
-			<% user = User.find(book.user_id) %>
-			<%= user.email %>
-		</div>
-		</br>
-<% end %>
+<div id = "bookResults">
+</div>
+
+<script type="text/javascript">
+  searchField = document.getElementById("search_box");
+  searchField.addEventListener("keyup", keydownHandler);
+  
+  function keydownHandler(){
+     sendRequest(searchField.value);
+  }
+
+  function sendRequest(substring){
+  url = "../book/search?substring="+substring;
+  console.log(url);
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function()
+  {
+  console.log("in xml feedback");
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("bookResults").innerHTML=xmlhttp.responseText;
+    }
+  };
+  
+  xmlhttp.open("GET",url,true);
+  xmlhttp.send();
+  
+  var text = this.responseText;
+}
+</script>

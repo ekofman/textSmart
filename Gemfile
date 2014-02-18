@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+gem 'sqlite3'
 gem  'pg'
 
 # Use SCSS for stylesheets
@@ -55,3 +55,4 @@ gem 'rails_12factor', group: :production
 ruby "2.0.0"
 
 gem "heroku", "~> 3.2.3"
+
