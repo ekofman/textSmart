@@ -8,6 +8,9 @@ class BookController < ApplicationController
     end
      
     def new
+      if session["user"] == nil
+        redirect_to(:controller => "user", :action => "login")
+      end
     end
 
     def search
