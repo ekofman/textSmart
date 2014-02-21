@@ -11,6 +11,9 @@
   searchField = document.getElementById("search_box");
   searchField.addEventListener("keyup", keydownHandler);
   
+  //if blank, fill page with all options
+  sendRequest(searchField.value);
+  //otherwise, wait for a key to be released in textfield
   function keydownHandler(){
      sendRequest(searchField.value);
   }
